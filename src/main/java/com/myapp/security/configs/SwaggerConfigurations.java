@@ -1,7 +1,9 @@
 package com.myapp.security.configs;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -23,15 +25,22 @@ import org.springframework.context.annotation.Configuration;
         bearerFormat = "JWT",
         in = SecuritySchemeIn.HEADER
 )
+@OpenAPIDefinition(
+        security = {
+                @SecurityRequirement(
+                        name = "bearerAuth"
+                )
+        }
+)
 public class SwaggerConfigurations {
 
     @Bean
     public OpenAPI myOpenAPI() {
 
         Contact contact = new Contact();
-        contact.setEmail("developers@afrosoft.co.zw");
-        contact.setName("Afrosoft Engineering Team");
-        contact.setUrl("https://www.afrosoft.co.zw/#/");
+        contact.setEmail("terrynyamz93@gmail.com");
+        contact.setName("Tenic Designers");
+        contact.setUrl("#");
 
         License mitLicense = new License().name("MIT License").url("https://choosealicense.com/licenses/mit/");
 
@@ -39,7 +48,7 @@ public class SwaggerConfigurations {
                 .title("Security")
                 .version("1.0")
                 .contact(contact)
-                .description("Security").termsOfService("https://www.afrosoft.co.zw/#/")
+                .description("Security").termsOfService("#")
                 .license(mitLicense);
 
         return new OpenAPI().info(info);

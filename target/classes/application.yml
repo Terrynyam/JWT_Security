@@ -18,23 +18,6 @@ spring:
       show-sql: true
       format_sql: true
 
-  mail:
-    host: smtp.office365.com
-    port: 587
-    username: noreply@afrosoft.co.zw
-    password: '%$Afro123'
-    properties:
-      mail:
-        smtp:
-          starttls:
-            enable: true
-    test-connection: true
-
-  servlet:
-    multipart:
-      max-file-size: 30MB
-      max-request-size: 30MB
-
   main:
     allow-bean-definition-overriding: true
 
@@ -45,17 +28,6 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
-
-
-sms:
-  username: Devtest
-  password: "%Dev@190"
-  smsclientid: 2115420437
-  senderid: FNB
-  gateway: http://196.43.100.53:8901/teleoss/sendsms.jsp
-  accountusagetypeid: 1
-  unicode: 0
-  isallowduplicatemobile: yes
 
 signing:
   key: afrocodemy_default_user
